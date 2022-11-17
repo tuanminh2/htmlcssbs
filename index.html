@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
+
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"
+    />
+  </head>
+
+  <body>
+    <section class="product">
+      <div class="product__photo">
+        <div class="photo-container">
+          <div class="photo-main">
+            <img
+              src="https://res.cloudinary.com/john-mantas/image/upload/v1537291846/codepen/delicious-apples/green-apple-with-slice.png"
+              alt="green apple slice"
+              class="mainPhoto"
+            />
+          </div>
+          <div class="photo-album">
+            <div class="album-slider">
+              <div class="album-slider__item" style="height: 60px; width: 60px">
+                <img
+                  class=""
+                  src="https://media.riverford.co.uk/images/512x512-df7968962d0b98e4b2034efbd8ae8ef2.jpg"
+                  alt=""
+                />
+              </div>
+              <div class="album-slider__item" style="height: 60px; width: 60px">
+                <img
+                  src="https://media.riverford.co.uk/images/512x512-df7968962d0b98e4b2034efbd8ae8ef2.jpg"
+                  alt=""
+                />
+              </div>
+              <div class="album-slider__item" style="height: 60px; width: 60px">
+                <img
+                  src="https://media.riverford.co.uk/images/512x512-df7968962d0b98e4b2034efbd8ae8ef2.jpg"
+                  alt=""
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="product__info">
+        <div class="title">
+          <h1>Delicious Apples</h1>
+          <span>COD: 45999</span>
+        </div>
+        <div class="price">R$ <span>7.93</span></div>
+        <!-- <div class="variant">
+                <h3>SELECT A COLOR</h3>
+                <ul>
+                  </ul>
+            </div> -->
+        <div class="description">
+          <h3>BENEFITS</h3>
+          <ul>
+            <li>Apples are nutricious</li>
+            <li>Apples may be good for weight loss</li>
+            <li>Apples may be good for bone health</li>
+            <li>They're linked to a lowest risk of diabetes</li>
+          </ul>
+        </div>
+        <button class="buy--btn">ADD TO CART</button>
+      </div>
+    </section>
+
+    <footer>
+      <p>
+        Design from
+        <a href="https://dribbble.com/shots/5216438-Daily-UI-012"
+          >dribbble shot</a
+        >
+        of <a href="https://dribbble.com/rodrigorramos">Rodrigo Ramos</a>
+      </p>
+    </footer>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+      integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"
+    ></script>
+    <script>
+      $(document).ready(function () {
+        $(".album-slider").on(
+          "afterChange",
+          function (event, slick, currentSlide, nextSlide) {
+            console.log("----------------------");
+            var CurrentImg = $(slick.$slides.get(currentSlide))
+              .find("img")
+              .attr("src")
+              .split("/")
+              .pop();
+            console.log(CurrentImg);
+          }
+        );
+        $(".album-slider").slick({
+          arrows: true,
+          centerMode: true,
+          centerPadding: "60px",
+          slidesToShow: 2,
+          slidesToScroll: 1,
+          infinite: true,
+
+          prevArrow: `<button type='button' class='slick-prev slick-arrow'><ion-icon name="arrow-back-outline"></ion-icon></button>`,
+          nextArrow: `<button type='button' class='slick-next slick-arrow'><ion-icon name="arrow-forward-outline"></ion-icon></button>`,
+
+          responsive: [
+            {
+              breakpoint: 1025,
+              settings: {
+                slidesToShow: 3,
+                arrows: true,
+              },
+            },
+            {
+              breakpoint: 480,
+              settings: {
+                slidesToShow: 2,
+                arrows: true,
+                infinite: false,
+              },
+            },
+          ],
+          // autoplay: true,
+          // autoplaySpeed: 1000,
+        });
+      });
+    </script>
+  </body>
+</html>
